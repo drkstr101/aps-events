@@ -10,11 +10,16 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@starter/app/*": ["apps/starter/app/*"],
+      "@starter/components/*": ["apps/starter/components/*"],
+      "@starter/lib/*": ["apps/starter/lib/*"],
+      "@starter/styles/*": ["apps/starter/styles/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
