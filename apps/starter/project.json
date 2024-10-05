@@ -1,0 +1,51 @@
+{
+  "name": "starter",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/starter",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/starter"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/starter"
+        },
+        "production": {}
+      }
+    },
+
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "dependsOn": ["^build"],
+      "options": {
+        "buildTarget": "starter:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "starter:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "starter:build:production",
+          "dev": false
+        }
+      }
+    },
+
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/starter/**/*.css"]
+      }
+    }
+  }
+}
