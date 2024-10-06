@@ -9,6 +9,7 @@
       "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
+      "cache": true,
       "options": {
         "outputPath": "dist/apps/starter"
       },
@@ -26,7 +27,8 @@
       "dependsOn": ["^build"],
       "options": {
         "buildTarget": "starter:build",
-        "dev": true
+        "dev": true,
+        "port": 4200
       },
       "configurations": {
         "development": {
@@ -35,7 +37,8 @@
         },
         "production": {
           "buildTarget": "starter:build:production",
-          "dev": false
+          "dev": false,
+          "port": 3000
         }
       }
     },
@@ -43,6 +46,7 @@
     "stylelint": {
       "executor": "nx-stylelint:lint",
       "outputs": ["{options.outputFile}"],
+      "cache": true,
       "options": {
         "lintFilePatterns": ["apps/starter/**/*.css"]
       }

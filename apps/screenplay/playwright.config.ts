@@ -4,7 +4,7 @@ import { defineConfig, devices } from '@playwright/test';
 import { workspaceRoot } from '@nx/devkit';
 
 // For CI, you may want to set BASE_URL to the deployed application.
-const baseURL = process.env['BASE_URL'] || 'http://localhost:4000';
+const baseURL = process.env['BASE_URL'] || 'http://localhost:3000';
 
 /**
  * Read environment variables from file.
@@ -25,7 +25,7 @@ export default defineConfig({
   },
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'nx run starter:start --port 4000',
+    command: 'nx run starter:serve:production',
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,

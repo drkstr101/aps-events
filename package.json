@@ -4,11 +4,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "ci": "nx format && nx run-many -t lint test build",
+    "ci": "nx format && nx run-many -t lint test build e2e --skip-nx-cache",
     "build": "nx run-many -t build",
     "lint": "nx run-many -t lint stylelint",
     "test": "nx run-many -t test --coverage -- --detectOpenHandles --runInBand",
-    "start": "nx run starter:dev --port 4200",
+    "start": "nx run starter:serve",
     "e2e": "nx run screenplay:e2e --skip-nx-cache",
     "e2e:setup": "playwright install --with-deps --force"
   },
@@ -72,6 +72,7 @@
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-tailwindcss": "^0.0.7",
+    "supabase": "1.200.3",
     "tailwind-merge": "^2.5.3",
     "tailwindcss": "^3.4.13",
     "tailwindcss-animate": "^1.0.7",
